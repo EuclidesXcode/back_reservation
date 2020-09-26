@@ -10,7 +10,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(routers);
-const port = process.env.PORT || 2000;
+const port = process.env.PORT || 80;
 
 app.listen( port, () => {
     console.log(`server on ${port}`)
