@@ -10,6 +10,7 @@ const encryptPassword = async password => {
 const userService = {
     getAll: async (req, res) => {
         const { page, noLimit } = req.body;
+        console.log(noLimit)
         try {
           if (!noLimit) {
             const count = await user.countDocuments("user");
@@ -24,7 +25,7 @@ const userService = {
     
             res.json({ items, total: count }).status(200);
           } else {
-            const items = await clients.find();
+            const items = await user.find();
     
             res.json({ items }).status(200);
           }
