@@ -14,6 +14,7 @@ const userService = {
             if (!payload.email || !payload.password) throw { msg: 'Dados inválidos', status: 400 }
 
             const newUser = {
+                name: payload.name,
                 email: payload.email,
                 password: await encryptPassword(payload.password),
             }
