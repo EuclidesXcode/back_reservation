@@ -8,6 +8,30 @@ const encryptPassword = async password => {
 }
   
 const userService = {
+    getAll: async (req, res) => {
+        const { page, noLimit } = req.body;
+        try {
+          if (!noLimit) {
+            const count = await user.countDocuments("user");
+            const countPage = page - 1;
+            const limit = 10;
+            const skip = limit * countPage - 1 + 1;
+    
+            const items = await user
+              .find()
+              .skip(skip)
+              .limit(limit);
+    
+            res.json({ items, total: count }).status(200);
+          } else {
+            const items = await clients.find();
+    
+            res.json({ items }).status(200);
+          }
+        } catch (error) {
+          res.json(error).status(500);
+        }
+      },
     create: async (req, res) => {
         const payload = req.body;
         try {
