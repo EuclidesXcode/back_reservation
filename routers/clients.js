@@ -4,13 +4,12 @@ const statesService = require('../services/clients')
 
 routers.post('/get', (req,res) => {
     statesService.getAll(req,res)
-    
 });
 routers.post('/filter', (req,res) => {
     statesService.filter(req,res)
 });
 
-routers.post('/', (req,res) => {
+routers.post('/createClient', (req,res) => {
     statesService.save(req,res)
 });
 routers.delete('/:id', (req,res) => {
