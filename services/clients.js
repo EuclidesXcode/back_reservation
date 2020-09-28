@@ -74,13 +74,8 @@ const statesService = {
         !payload.babyName ||
         !payload.cpf ||
         !payload.adress ||
-        !payload.numberAdress ||
-        !payload.cep ||
-        !payload.neighborhood ||
-        !payload.state ||
         !payload.cellNumber ||
         !payload.email ||
-        !payload.city
       )
         throw { msg: "Dados inválidos", status: 400 };
       const existsClient = await states.findOne({ cpf: payload.cpf });
