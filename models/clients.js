@@ -14,19 +14,7 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  phone: {
-    type: String,
-    required: true,
-  },
   cpf: {
-    type: String,
-    required: true,
-  },
-  complement: {
-    type: String,
-    required: true,
-  },
-  city: {
     type: String,
     required: true,
   },
@@ -47,6 +35,18 @@ const schema = new mongoose.Schema({
     required: true,
   },
   celPhone: {
+    type: String,
+    required: true,
+  },
+  phone: {
+    type: String,
+    required: true,
+  },
+  complement: {
+    type: String,
+    required: true,
+  },
+  city: {
     type: String,
     required: true,
   },

@@ -28,7 +28,7 @@ const statesService = {
     }
   },
   filter: async (req, res) => {
-    const { name, babyName, cpf, numberRegistration, celNumber } = req.body;
+    const { name, babyName, cpf, numberRegistration, celPhone } = req.body;
     try {
       if (name) {
         const data = await clients.find({
@@ -53,9 +53,9 @@ const statesService = {
           },
         });
         res.json(data).status(200);
-      } else if (celNumber) {
+      } else if (celPhone) {
         const data = await clients.find({
-          celNumber: { $regex: new RegExp(celNumber), $options: "i" },
+          celPhone: { $regex: new RegExp(celPhone), $options: "i" },
         });
         res.json(data).status(200);
       } else {
@@ -70,12 +70,18 @@ const statesService = {
     const payload = req.body;
     try {
       if (
+        !payload.codNumber ||
         !payload.name ||
         !payload.babyName ||
         !payload.cpf ||
         !payload.adress ||
-        !payload.cellNumber ||
-        !payload.email ||
+        !payload.numberAdress ||
+        !payload.cep ||
+        !payload.bairro ||
+        !payload.celPhone ||
+        !payload.phone ||
+        !payload.complement ||
+        !payload.city
       )
         throw { msg: "Dados inválidos", status: 400 };
       const existsClient = await states.findOne({ cpf: payload.cpf });
