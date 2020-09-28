@@ -11,7 +11,7 @@ routers.put('/:id', (req,res) => {
 routers.delete('/:id', (req,res) => {
     userServices.delete(req,res)
 })
-routers.post('/', (req,res) => {
+routers.post('/getUsers', (req,res) => {
     userServices.getAll(req,res)
 })
 module.exports = routers
