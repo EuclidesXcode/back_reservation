@@ -58,8 +58,9 @@ const statesService = {
       res.json(error).status(500);
     }
   },
-  save: async (req, res) => {
+  create: async (req, res) => {
     const payload = req.body;
+    console.log("recebi o payload: ", payload);
     try {
       if (
         !payload.codNumber ||
@@ -74,6 +75,7 @@ const statesService = {
       //   throw { msg: "Cliente já existe no sistema", status: 400 };
 
       const data = await states.create(payload);
+      console.log("enviou o cliente: ", data);
       res.json(data).status(201);
     } catch (error) {
       if (error.status) res.status(error.status).json(error.msg);

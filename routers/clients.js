@@ -10,7 +10,7 @@ routers.post('/filter', (req,res) => {
 });
 
 routers.post('/createClient', (req,res) => {
-    statesService.save(req,res)
+    statesService.create(req,res)
 });
 routers.delete('/:id', (req,res) => {
     statesService.delete(req,res)
