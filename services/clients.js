@@ -68,7 +68,15 @@ const clientsService = {
         !payload.codNumber ||
         !payload.name ||
         !payload.babyName ||
-        !payload.cpf
+        !payload.cpf ||
+        !payload.address ||
+        !payload.complement ||
+        !payload.cep ||
+        !payload.city ||
+        !payload.email ||
+        !payload.bairro ||
+        !payload.celPhone ||
+        !payload.phone
       )
         throw { msg: "Dados inválidos", status: 400 };
       const existsClient = await states.findOne({ cpf: payload.cpf });
