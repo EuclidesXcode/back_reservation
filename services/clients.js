@@ -8,6 +8,7 @@ const statesService = {
     console.log("o que tem no banco: ", req.body);
     try {
       if (!noLimit) {
+        console.log("items clients: ", await clients.find())
         const count = await clients.countDocuments("clients");
         const countPage = page - 1;
         const limit = 10;
