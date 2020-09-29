@@ -3,7 +3,6 @@ require('dotenv').config()
 const cors = require('cors')
 const bodyParser = require('body-parser');
 const app = require('express')();
-const Routers = require('./routers');
 const routers = require('./routers');
 
 app.use(cors());

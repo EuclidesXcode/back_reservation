@@ -5,6 +5,7 @@ const methods = require("../methods");
 const statesService = {
   getAll: async (req, res) => {
     const { page, noLimit } = req.body;
+    console.log("o que tem no banco: ", req.body);
     try {
       if (!noLimit) {
         const count = await clients.countDocuments("clients");
