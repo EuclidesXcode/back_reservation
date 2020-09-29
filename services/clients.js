@@ -1,13 +1,11 @@
 const clients = require("../models/clients");
-const schedule = require("../models/schedule");
-const methods = require("../methods");
 
-const statesService = {
+const clientsService = {
   getAll: async (req, res) => {
     const { page, noLimit } = req.body;
     console.log("noLimit: ", noLimit);
     try {
-      if (!noLimit) {
+      if (noLimit === true) {
         console.log("entrou no try: ")
         const count = await clients.countDocuments("clients");
         const countPage = page - 1;
@@ -124,4 +122,4 @@ const statesService = {
   },
 };
 
-module.exports = statesService;
+module.exports = clientsService;

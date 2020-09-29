@@ -1,5 +1,4 @@
 const user = require('../models/user');
-const methods = require('../methods');
 const bcrypt = require('bcrypt')
 
 const encryptPassword = async password => {
