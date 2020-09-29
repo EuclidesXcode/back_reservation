@@ -17,7 +17,7 @@ const statesService = {
           .find()
           .skip(skip)
           .limit(limit);
-
+        console.log("items: ", items);
         res.json({ items, total: count }).status(200);
       } else {
         const items = await clients.find();
