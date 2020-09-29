@@ -11,7 +11,7 @@ const paymentService = {
             const skip = (limit * countPage - 1) + 1  
 
             const items = await payment.find().skip(skip).limit(limit);
-
+            console.log("items payment: ", items);
             res.json({items, total: count}).status(200);
         } catch (error) {
             res.json(error).status(500);
@@ -20,8 +20,8 @@ const paymentService = {
     create: async (req, res) => {
         const payload = req.body;
         try {
+            console.log("recebi: ", payload);
             if (!payload.name) throw { msg: 'Dados inválidos', status: 400 };
-
 
             const data = await payment.create(payload)
             res.json(data).status(201);
