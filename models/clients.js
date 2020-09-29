@@ -30,11 +30,15 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  bairro: {
+  city: {
     type: String,
     required: true,
   },
-  city: {
+  email: {
+    type: String,
+    required: true,
+  },
+  bairro: {
     type: String,
     required: true,
   },
@@ -43,10 +47,6 @@ const schema = new mongoose.Schema({
     required: true,
   },
   phone: {
-    type: String,
-    required: true,
-  },
-  email: {
     type: String,
     required: true,
   },
