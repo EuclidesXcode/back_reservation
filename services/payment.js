@@ -4,6 +4,7 @@ const methods = require('../methods');
 const paymentService = {
     getAll: async (req, res) => {
         const { page } = req.body;
+        console.log("entrei na rota do get")
         try {
             const count = await payment.countDocuments('payment');
             const countPage = page - 1
