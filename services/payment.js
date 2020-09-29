@@ -1,5 +1,4 @@
 const payment = require('../models/payment');
-const methods = require('../methods');
 
 const paymentService = {
     getAll: async (req, res) => {

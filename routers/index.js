@@ -9,7 +9,7 @@ const routers = express.Router();
 const authMiddleware = require('../middlewares/auth');
 
 routers.use('/user', userRouters);
-routers.use('/payments', paymentsRouters);
+routers.use('/payment', paymentsRouters);
 routers.use('/tests', testsRouters);
 routers.use('/auth', authRouter);
 // . . . Rotas abaixo necessitam de authenticação . . .
