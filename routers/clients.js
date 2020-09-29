@@ -8,7 +8,6 @@ routers.post('/get', (req,res) => {
 routers.post('/filter', (req,res) => {
     clientsService.filter(req,res)
 });
-
 routers.post('/createClient', (req,res) => {
     clientsService.create(req,res)
 });

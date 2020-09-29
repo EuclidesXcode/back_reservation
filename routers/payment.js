@@ -1,19 +1,19 @@
 const express = require('express');
 const routers = express.Router();
-const methodsPaymentService = require('../services/methodsPayments')
+const paymentService = require('../services/payment')
 
 routers.post('/get', (req,res) => {
-    methodsPaymentService.getAll(req,res) 
+    paymentService.getAll(req,res) 
 });
 
 routers.post('/', (req,res) => {
-    methodsPaymentService.save(req,res)
+    paymentService.create(req,res)
 });
 routers.delete('/:id', (req,res) => {
-    methodsPaymentService.delete(req,res)
+    paymentService.delete(req,res)
 });
 routers.put('/:id', (req,res) => {
-    methodsPaymentService.update(req,res)
+    paymentService.update(req,res)
 });
 
 module.exports = routers;

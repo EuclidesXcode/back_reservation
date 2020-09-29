@@ -8,6 +8,6 @@ const schema = new mongoose.Schema({
     required: true,
   }
 }, { timestamps: true });
-const methodsPayment = mongoose.model('methodsPayment', schema);
+const payment = mongoose.model('payment', schema);
 
-module.exports = methodsPayment;
+module.exports = payment;
