@@ -28,7 +28,7 @@ const statesService = {
     }
   },
   filter: async (req, res) => {
-    const { name, babyName, cpf, numberRegistration, celPhone } = req.body;
+    const { name, babyName, cpf, celPhone } = req.body;
     try {
       if (name) {
         const data = await clients.find({
@@ -43,14 +43,6 @@ const statesService = {
       } else if (cpf) {
         const data = await clients.find({
           cpf: { $regex: new RegExp(cpf), $options: "i" },
-        });
-        res.json(data).status(200);
-      } else if (numberRegistration) {
-        const data = await clients.find({
-          numberRegistration: {
-            $regex: new RegExp(numberRegistration),
-            $options: "i",
-          },
         });
         res.json(data).status(200);
       } else if (celPhone) {
