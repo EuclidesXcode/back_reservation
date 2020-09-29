@@ -7,7 +7,7 @@ routers.post('/get', (req,res) => {
 });
 
 routers.post('/', (req,res) => {
-    testsService.save(req,res)
+    testsService.create(req,res)
 });
 routers.delete('/:id', (req,res) => {
     testsService.delete(req,res)

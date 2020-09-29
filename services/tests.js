@@ -18,14 +18,15 @@ const testsService = {
             res.json(error).status(500);
         }
     },
-    save: async (req, res) => {
+    create: async (req, res) => {
         const payload = req.body;
         console.log("enviei ensaio: ", payload);
         try {
-            if (!payload.name) throw { msg: 'Dados inválidos', status: 400 };
+            if (!payload.name || !payload.price) throw { msg: 'Dados inválidos', status: 400 };
 
 
             const data = await tests.create(payload)
+            console.log("data montado: ", data);
             res.json(data).status(201);
 
         } catch (error) {
