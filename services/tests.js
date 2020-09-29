@@ -4,6 +4,7 @@ const methods = require('../methods');
 const testsService = {
     getAll: async (req, res) => {
         const { page } = req.body;
+        console.log("entrei na rota do ensaio")
         try {
             const count = await tests.countDocuments('tests');
             const countPage = page - 1
@@ -11,7 +12,7 @@ const testsService = {
             const skip = (limit * countPage - 1) + 1  
 
             const items = await tests.find().skip(skip).limit(limit);
-
+            console.log("items ensaio: ", items);
             res.json({items, total: count}).status(200);
         } catch (error) {
             res.json(error).status(500);
@@ -19,6 +20,7 @@ const testsService = {
     },
     save: async (req, res) => {
         const payload = req.body;
+        console.log("enviei ensaio: ", payload);
         try {
             if (!payload.name) throw { msg: 'Dados inválidos', status: 400 };
 
