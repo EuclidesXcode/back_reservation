@@ -5,10 +5,10 @@ const methods = require("../methods");
 const statesService = {
   getAll: async (req, res) => {
     const { page, noLimit } = req.body;
-    console.log("o que tem no banco: ", req.body);
+    console.log("noLimit: ", noLimit);
     try {
       if (!noLimit) {
-        console.log("items clients: ", await clients.find())
+        console.log("entrou no try: ")
         const count = await clients.countDocuments("clients");
         const countPage = page - 1;
         const limit = 10;
@@ -26,6 +26,7 @@ const statesService = {
         res.json({ items }).status(200);
       }
     } catch (error) {
+      console.log("entrou no catch: ")
       res.json(error).status(500);
     }
   },
