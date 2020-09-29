@@ -8,6 +8,7 @@ const clientsService = {
       if (noLimit === true) {
         console.log("entrou no try: ")
         const count = await clients.countDocuments("clients");
+        console.log("count: ", count);
         const countPage = page - 1;
         const limit = 10;
         const skip = limit * countPage - 1 + 1;
