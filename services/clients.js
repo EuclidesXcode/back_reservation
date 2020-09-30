@@ -65,18 +65,7 @@ const clientsService = {
     try {
       console.log("recebi o payload: ", payload);
       if (
-        !payload.codNumber ||
-        !payload.name ||
-        !payload.babyName ||
-        !payload.cpf ||
-        !payload.address ||
-        !payload.complement ||
-        !payload.cep ||
-        !payload.city ||
-        !payload.email ||
-        !payload.bairro ||
-        !payload.celPhone ||
-        !payload.phone
+        !payload.codNumber
       )
         throw { msg: "Dados inválidos", status: 400 };
       const existsClient = await states.findOne({ cpf: payload.cpf });
