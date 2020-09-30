@@ -64,16 +64,27 @@ const clientsService = {
     const payload = req.body;
     try {
       console.log("recebi o payload: ", payload);
-      // if (
-      //   !payload.codNumber
-      // )
-        // throw { msg: "Dados inválidos", status: 400 };
-      const existsClient = await states.findOne({ cpf: payload.cpf });
-        console.log("será que existe? ", existsClient);
-      if (existsClient) 
+      if (
+        !payload.codNumber ||
+        !payload.name ||
+        !payload.babyName ||
+        !payload.cpf ||
+        !payload.address ||
+        !payload.complement ||
+        !payload.cep ||
+        !payload.city ||
+        !payload.email ||
+        !payload.bairro ||
+        !payload.celPhone ||
+        !payload.phone
+      )
+        throw { msg: "Dados inválidos", status: 400 };
+        const existsClient = await clients.findOne({ cpf: payload.cpf });
+        if (existsClient) 
         throw { msg: "Cliente já existe no sistema", status: 400 };
+        console.log("será que existe? ", existsClient);
 
-      const data = await states.create(payload);
+      const data = await clients.create(payload);
       console.log("enviou o cliente: ", data);
       res.json(data).status(201);
     } catch (error) {
