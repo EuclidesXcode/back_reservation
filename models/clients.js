@@ -19,36 +19,28 @@ const schema = new mongoose.Schema({
     required: true,
   },
   address: {
-    type: String,
-    required: true,
+    type: String
   },
   complement: {
-    type: String,
-    required: true,
+    type: String
   },
   cep: {
-    type: String,
-    required: true,
+    type: String
   },
   city: {
-    type: String,
-    required: true,
+    type: String
   },
   email: {
-    type: String,
-    required: true,
+    type: String
   },
   bairro: {
-    type: String,
-    required: true,
+    type: String
   },
   celPhone: {
-    type: String,
-    required: true,
+    type: String
   },
   phone: {
-    type: String,
-    required: true,
+    type: String
   },
 }, { timestamps: true });
 const clients = mongoose.model('clients', schema);
