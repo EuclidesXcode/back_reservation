@@ -62,8 +62,8 @@ const clientsService = {
   },
   create: async (req, res) => {
     const payload = req.body;
-    console.log("recebi o payload: ", payload);
     try {
+      console.log("recebi o payload: ", payload);
       if (
         !payload.codNumber ||
         !payload.name ||
