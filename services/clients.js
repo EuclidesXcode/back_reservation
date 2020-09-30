@@ -64,10 +64,10 @@ const clientsService = {
     const payload = req.body;
     try {
       console.log("recebi o payload: ", payload);
-      if (
-        !payload.codNumber
-      )
-        throw { msg: "Dados inválidos", status: 400 };
+      // if (
+      //   !payload.codNumber
+      // )
+        // throw { msg: "Dados inválidos", status: 400 };
       const existsClient = await states.findOne({ cpf: payload.cpf });
         console.log("será que existe? ", existsClient);
       if (existsClient) 
