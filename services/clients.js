@@ -80,7 +80,7 @@ const clientsService = {
       )
         throw { msg: "Dados inválidos", status: 400 };
       const existsClient = await states.findOne({ cpf: payload.cpf });
-
+        console.log("será que existe? ", existsClient);
       if (existsClient) 
         throw { msg: "Cliente já existe no sistema", status: 400 };
 
