@@ -12,7 +12,7 @@ routers.post('/filter', (req,res) => {
 
 routers.post('/post/', (req,res) => {
     console.log("entrou pra salvar o agendamento")
-    sheduleService.save(req,res)
+    sheduleService.create(req,res)
 });
 routers.delete('/:id', (req,res) => {
     sheduleService.delete(req,res)

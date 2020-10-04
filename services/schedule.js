@@ -1,6 +1,5 @@
 const schedule = require('../models/schedule');
 const clients = require('../models/clients');
-const methods = require('../methods');
 
 const scheduleService = {
     getAll: async (req, res) => {
@@ -57,7 +56,7 @@ const scheduleService = {
           res.json(error).status(500);
         }
     },
-    save: async (req, res) => {
+    create: async (req, res) => {
         const payload = req.body;
         console.log("recebi do agendamento: ", req.body);
         try {
