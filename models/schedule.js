@@ -14,15 +14,15 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  cpf: {
-    type: String,
-    required: true,
-  },
   plots: {
     type: String,
     required: true,
   },
-  testDates: {
+  sinal: {
+    type: Boolean,
+    required: true,
+  },
+  listSchedules: {
       type: Array,
       required: true
   }
