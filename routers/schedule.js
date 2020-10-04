@@ -10,7 +10,7 @@ routers.post('/filter', (req,res) => {
     sheduleService.filter(req,res)
 });
 
-routers.post('/', (req,res) => {
+routers.post('/post/', (req,res) => {
     console.log("entrou pra salvar o agendamento")
     sheduleService.save(req,res)
 });
