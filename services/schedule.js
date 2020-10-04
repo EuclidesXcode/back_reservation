@@ -59,6 +59,7 @@ const scheduleService = {
     },
     save: async (req, res) => {
         const payload = req.body;
+        console.log("recebi do agendamento: ", req.body);
         try {
             if (!payload.clientId || !payload.testId || !payload.paymentId) 
               throw { msg: 'Dados inválidos', status: 400 };
