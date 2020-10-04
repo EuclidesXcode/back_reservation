@@ -11,6 +11,7 @@ routers.post('/filter', (req,res) => {
 });
 
 routers.post('/', (req,res) => {
+    console.log("entrou pra salvar o agendamento")
     sheduleService.save(req,res)
 });
 routers.delete('/:id', (req,res) => {

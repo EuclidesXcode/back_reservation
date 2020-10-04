@@ -60,7 +60,7 @@ const scheduleService = {
     save: async (req, res) => {
         const payload = req.body;
         try {
-            if (!payload.clientId || !payload.testId || !payload.paymentId || !payload.testDates.length) 
+            if (!payload.clientId || !payload.testId || !payload.paymentId) 
               throw { msg: 'Dados inválidos', status: 400 };
 
             const data = await schedule.create(payload)
