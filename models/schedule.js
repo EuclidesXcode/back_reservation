@@ -18,6 +18,10 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  plots: {
+    type: String,
+    required: true,
+  },
   testDates: {
       type: Array,
       required: true
