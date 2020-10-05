@@ -23,7 +23,7 @@ const schema = new mongoose.Schema({
     required: true,
   },
   listSchedules: {
-      type: Array,
+      type: Object,
       required: true
   }
 }, { timestamps: true });
