@@ -1,18 +1,17 @@
-const products = require('../models/products');
-const methods = require('../methods');
+const services = require('../models/services');
 
-const productsService = {
+const servicesService = {
     getAll: async (req, res) => {
         const { page } = req.body;
         console.log("entrei na rota do produto")
         try {
-            const count = await products.countDocuments('products');
+            const count = await services.countDocuments('services');
             const countPage = page - 1
             const limit = 10;
             const skip = (limit * countPage - 1) + 1  
 
-            const items = await products.find().skip(skip).limit(limit);
-            console.log("items produtos: ", items);
+            const items = await services.find().skip(skip).limit(limit);
+            console.log("items serviços: ", items);
             res.json({items, total: count}).status(200);
         } catch (error) {
             res.json(error).status(500);
@@ -20,12 +19,12 @@ const productsService = {
     },
     create: async (req, res) => {
         const payload = req.body;
-        console.log("enviei produto: ", payload);
+        console.log("enviei serviço: ", payload);
         try {
             if (!payload.name || !payload.price) throw { msg: 'Dados inválidos', status: 400 };
 
 
-            const data = await products.create(payload)
+            const data = await services.create(payload)
             console.log("data montado: ", data);
             res.json(data).status(201);
 
@@ -39,7 +38,7 @@ const productsService = {
         console.log("entrou para deletar o id: ", id);
         try {
             if (!id) throw { msg: 'Id não informado', status: 400 }
-            const data = await products.remove({ _id: id })
+            const data = await services.remove({ _id: id })
             res.json(data).status(204);
 
         } catch (error) {
@@ -53,7 +52,7 @@ const productsService = {
         try {
             if (!payload.name) throw { msg: 'Dados inválidos', status: 400 }
             
-            const data = await products.updateOne({ _id: id }, payload, { multi: false })
+            const data = await services.updateOne({ _id: id }, payload, { multi: false })
             res.json(data).status(204);
 
         } catch (error) {
@@ -63,4 +62,4 @@ const productsService = {
     }
 }
 
-module.exports = productsService
+module.exports = servicesService

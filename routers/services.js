@@ -1,20 +1,20 @@
 const express = require('express');
 const routers = express.Router();
-const productsService = require('../services/products')
+const servicesService = require('../services/services')
 
 routers.post('/get', (req,res) => {
-    productsService.getAll(req,res) 
+    servicesService.getAll(req,res) 
 });
 
 routers.post('/', (req,res) => {
-    productsService.create(req,res)
+    servicesService.create(req,res)
 });
 routers.delete('/:id', (req,res) => {
     console.log("ENTROU NA ROTA:::: ", res);
-    productsService.delete(req,res)
+    servicesService.delete(req,res)
 });
 routers.put('/:id', (req,res) => {
-    productsService.update(req,res)
+    servicesService.update(req,res)
 });
 
 module.exports = routers;
