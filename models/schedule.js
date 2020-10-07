@@ -25,7 +25,11 @@ const schema = new mongoose.Schema({
   listSchedules: {
       type: Object,
       required: true
-  }
+  },
+  obs: {
+    type: String,
+    required: true,
+  },
 }, { timestamps: true });
 const schedule = mongoose.model('schedule', schema);
 
