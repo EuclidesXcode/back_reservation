@@ -4,8 +4,10 @@ const clients = require('../models/clients');
 const scheduleService = {
     getAll: async (req, res) => {
         const { page } = req.body;
+        console.log(page)
         try {
             const count = await schedule.countDocuments('schedule');
+            console.log(count)
             const countPage = page - 1
             const limit = 10;
             const skip = (limit * countPage - 1) + 1  
@@ -60,7 +62,7 @@ const scheduleService = {
         const payload = req.body;
         console.log("recebi do agendamento: ", req.body);
         try {
-            if (!payload.clientId || !payload.testId || !payload.paymentId) 
+            if (!payload.client || !payload.test || !payload.payment) 
               throw { msg: 'Dados inválidos', status: 400 };
 
             const data = await schedule.create(payload)

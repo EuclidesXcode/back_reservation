@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 require('../config/mongodb');
 
 const schema = new mongoose.Schema({
-  clientId: {
+  client: {
     type: String,
     required: true,
   },
-  testId: {
+  test: {
     type: String,
     required: true,
   },
-  paymentId: {
+  payment: {
     type: String,
     required: true,
   },
@@ -23,7 +23,7 @@ const schema = new mongoose.Schema({
     required: true,
   },
   listSchedules: {
-      type: Object,
+      type: Array,
       required: true
   },
   obs: {

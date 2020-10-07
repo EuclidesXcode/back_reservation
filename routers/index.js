@@ -17,7 +17,7 @@ routers.use('/products', productsRouters);
 routers.use('/services', servicesRouters);
 routers.use('/auth', authRouter);
 // . . . Rotas abaixo necessitam de authenticação . . .
-routers.use(authMiddleware);
+// routers.use(authMiddleware);
 routers.use('/clients', clientsRouters);
 routers.use('/schedule', scheduleRouters);
 
