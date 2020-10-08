@@ -31,6 +31,6 @@ const schema = new mongoose.Schema({
     required: true,
   },
 }, { timestamps: true });
-const schedule = mongoose.model('schedule', schema);
+const schedules = mongoose.model('agendamentos', schema);
 
-module.exports = schedule;
+module.exports = schedules;

@@ -6,7 +6,7 @@ const scheduleService = {
         const { page } = req.body;
         console.log(page)
         try {
-            const count = await schedule.countDocuments('schedule');
+            const count = await schedule.countDocuments('schedules');
             console.log(count)
             const countPage = page - 1
             const limit = 10;
