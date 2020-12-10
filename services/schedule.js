@@ -65,9 +65,9 @@ const scheduleService = {
             if (!payload.client || !payload.test || !payload.payment) 
               throw { msg: 'Dados inválidos', status: 400 };
 
-              const existsSchedule = await schedule.findOne({listSchedule: payload.listSchedule});
-              if (existsSchedule)
-                throw { msg: "Já existe agendamento para data e/ou hora selecionada! Verificar os Agendamento!", status: 400 };
+              //const existsSchedule = await schedule.findOne({listSchedule: payload.listSchedule});
+              //if (existsSchedule)
+              // throw { msg: "Já existe agendamento para data e/ou hora selecionada! Verificar os Agendamento!", status: 400 };
                 
             const data = await schedule.create(payload)
             res.json(data).status(201);
