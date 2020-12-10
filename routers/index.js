@@ -1,6 +1,7 @@
 const clientsRouters = require('./clients');
 const testsRouters = require('./tests');
 const productsRouters = require('./products');
+const salesRouters = require('./sales');
 const servicesRouters = require('./services');
 const paymentsRouters = require('./payment');
 const scheduleRouters = require('./schedule');
@@ -16,6 +17,7 @@ routers.use('/tests', testsRouters);
 routers.use('/products', productsRouters);
 routers.use('/services', servicesRouters);
 routers.use('/auth', authRouter);
+routers.use('/sales', salesRouters);
 // . . . Rotas abaixo necessitam de authenticação . . .
 // routers.use(authMiddleware);
 routers.use('/clients', clientsRouters);
