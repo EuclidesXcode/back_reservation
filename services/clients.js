@@ -70,13 +70,11 @@ const clientsService = {
         !payload.babyName ||
         !payload.cpf ||
         !payload.address ||
-        !payload.complement ||
         !payload.cep ||
         !payload.city ||
         !payload.email ||
         !payload.bairro ||
-        !payload.celPhone ||
-        !payload.phone
+        !payload.celPhone 
       )
         throw { msg: "Dados inválidos", status: 400 };
         const existsClient = await clients.findOne({ cpf: payload.cpf });
