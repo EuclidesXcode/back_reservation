@@ -9,8 +9,8 @@ const salesService = {
             const limit = 10;
             const skip = (limit * countPage - 1) + 1  
 
-            const items = await payment.find().skip(skip).limit(limit);
-            console.log("items payment: ", items);
+            const items = await sales.find().skip(skip).limit(limit);
+            console.log("items sale: ", items);
             res.json({items, total: count}).status(200);
         } catch (error) {
             res.json(error).status(500);
@@ -50,7 +50,7 @@ const salesService = {
             const item = await sales.findOne({_id: id})
             item.status = 0;
             item.statusText = "Cancelada"
-            const data = await payment.updateOne({ _id: id }, item, { multi: false })
+            const data = await sales.updateOne({ _id: id }, item, { multi: false })
             res.json(data).status(204);
 
         } catch (error) {
