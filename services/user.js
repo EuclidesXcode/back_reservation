@@ -34,6 +34,7 @@ const userService = {
       },
     create: async (req, res) => {
         const payload = req.body;
+        console.log('[CREATE_USER_LOG] Payload: %j', payload)
         try {
             if (!payload.email || !payload.password) throw { msg: 'Dados inválidos', status: 400 }
 
@@ -43,16 +44,32 @@ const userService = {
                 password: await encryptPassword(payload.password),
             }
 
+            console.log('[CREATE_USER_LOG] newUser: %j', newUser)
+
             const existsUser = await user.findOne({ email: newUser.email })
             if (existsUser) throw { msg: 'Usuário já existe no sistema', status: 400 }
 
             const data = await user.create(newUser)
 
+            console.log('[CREATE_USER_LOG] After send to create: %j', data)
+
             res.json({items: {email: data.email, msg: 'Criado com sucesso'}}).status(201);
 
+            console.log('[CREATE_USER_LOG] Response: %j', res)
+
         } catch (error) {
-            if (error.status) res.status(error.status).json(error.msg)
-            else res.json(error).status(500);
+
+            console.log('[CREATE_USER_ERROR_LOG] Error: ', error)
+            
+            if (error.status) {
+                
+                res.status(error.status).json(error.msg)
+                return
+
+            }
+
+            res.json(error).status(500);
+            return
         }
     },
     delete: async (req, res) => {
