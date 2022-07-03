@@ -22,8 +22,11 @@ const userService = {
             res.status(200).json({token: generateToken({id: user._id})})
 
         } catch (error) {
-            if (error.status) res.status(error.status).json(error.msg)
-            else res.json(error).status(500);
+            console.log('[AUTH_ERROR_LOG] Error: ', error)
+            if (error.status) {
+                return res.status(error.status).json(error.msg) 
+            } 
+            return res.json(error).status(500);
         }
     }
 }
