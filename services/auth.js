@@ -6,13 +6,18 @@ const authConfig = require('../config/auth');
 const userService = {
     login: async (req, res) => {
         const { email, password } = req.body;
+        console.log('[AUTH_LOG] Login recebido: %j %j', email, password)
         try {
             const user = await users.findOne({ email: email }).select('+password');
+
+            console.log('[AUTH_LOG] Buscou no banco se exite o login: %j', user)
 
             if (!user) throw { msg: 'Usuário não existe', status: 400 };
             if (!bcrypt.compareSync(password, user.password)) throw { msg: 'Senha inválida', status: 400 };
             
             user.password = undefined;
+
+            console.log('[AUTH_LOG] User final: %j', user)
 
             res.status(200).json({token: generateToken({id: user._id})})
 
