@@ -10,10 +10,6 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  babyName: {
-    type: String,
-    required: true,
-  },
   cpf: {
     type: String,
     required: true,

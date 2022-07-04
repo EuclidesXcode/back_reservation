@@ -6,6 +6,30 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+    required: false,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  uriImages: {
+    type: Array,
+    required: false,
+  },
+  group: {
+    type: String,
+    required: true,
+  },
+  new: {
+    type: Boolean,
+    required: true,
+  },
+  quantity: {
+    type: String,
+    required: false,
+  },
   price: {
     type: String,
     required: true,
